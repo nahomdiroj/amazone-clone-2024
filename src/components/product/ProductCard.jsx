@@ -1,8 +1,22 @@
 import React from 'react'
 
-function ProductCard() {
+function ProductCard({product}) {
   return (
-    <div>ProductCard</div>
+    <div>
+        <a href="">
+          <img src="{product.image}" alt="" />
+        </a>
+        <div>
+          <h3>title</h3>
+          <div>
+
+          </div>
+          <div>
+            
+          </div>
+        </div>
+
+    </div>
   )
 }
 
