@@ -7,7 +7,7 @@ import Landing from './pages/Landing/Landing';
 function App() {
   return (
     <div >
-      <Header/>
+      
       <Landing/>
       
     </div>
