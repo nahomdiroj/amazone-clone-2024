@@ -1,18 +1,14 @@
 
 import './App.css';
 import Header from './components/Header/Header';
-import CarouselEffect from './components/carousel/CarouselEffect';
-import Catagory from './components/catagory/Catagory';
-import Product from './components/product/Product';
+import Landing from './pages/Landing/Landing';
 
 
 function App() {
   return (
     <div >
       <Header/>
-      <CarouselEffect/>
-      <Catagory/>
-      <Product/>
+      <Landing/>
       
     </div>
   );
