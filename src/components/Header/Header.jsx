@@ -4,7 +4,7 @@ import classes from './Header.module.css'
 import { BsSearch } from 'react-icons/bs';
 import { BiCart } from "react-icons/bi";
 import LowerHeader from './LowerHeader';
-
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -13,9 +13,9 @@ function Header() {
             <div className={classes.header_container}>
                 {/* logo */}
                 <div className={classes.logo_container}>
-                    <a href="/">'
-                    <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" srcset="" />
-                </a>
+                    <Link to="/">'
+                         <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="" srcset="" />
+                     </Link>
                 </div>
                 
                 {/* delivery */}
@@ -43,25 +43,25 @@ function Header() {
                   
                 </div>
                <div className={classes.order_container}>
-                    <a href="" className={classes.language}>
+                    <Link to="" className={classes.language}>
                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmXrh8P3GhPRNj1qZQFjd4rLZVFQFf3_cYICNn8VAUyQ&s" alt="" />
 
                              <select name="" id="">
                                 <option value="">EN</option>
                              </select>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link to="">
                         <p>Sign In</p>
                         <span>Account & Lists</span>
-                    </a>
-                    <a href="">
+                    </Link>
+                    <Link to="/orders">
                         <p>returns</p>
                         <span>& Orders</span>
-                    </a>
-                    <a href="" className={classes.cart}>
+                    </Link>
+                    <Link to="" className={classes.cart}>
                         <BiCart size={35}/>
                         <span>0</span>
-                    </a>
+                    </Link>
                </div>
                
       
