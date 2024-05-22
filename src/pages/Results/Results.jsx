@@ -5,38 +5,52 @@ import axios from 'axios';
 import {productUrl} from '../../Api/endPoints'
 import classes from './Results.module.css'
 import ProductCard from '../../components/product/ProductCard';
+import Loader from '../../components/Loader/Loader'
 
 function Results() {
   const [results,setResults]= useState([])
-  const {catagoryName}= useParams();
+  const {categoryName}= useParams();
+  const [isLaoding,setisLoading]=useState(true)
+  
   useEffect(() => {
-    axios.get(`${productUrl}/products/catagory/${catagoryName}`)
+    axios.get(`${productUrl}/products/category/${categoryName.toLocaleLowerCase()}`)
     .then((res)=>{
      setResults(res.data)
+     setisLoading(false)
+   
+   
     }).catch((err)=>{
         console.log(err)
+        setisLoading(true)
     })
   }, [])
   
- 
+ //https://fakestoreapi.com/products/category/jewelery
+
+   
 
   return (
     <Layout>
       
       <section>
         <h1 style={{padding:"30px"}}>Result</h1>
-        <p style={{padding:"30px"}}>Catagory/ {catagoryName}</p>
+        <p style={{padding:"30px"}}>Category/ {categoryName}</p>
 
         <hr/>
 
-        <div className={classes.products_container}>
+          {isLaoding?(<Loader/>):(<div className={classes.products_container}>
           {results?.map((product)=>{
-            <ProductCard key={product.id}
+            
+            
+           return <ProductCard key={product.id}
               product={product}
             />
+
+            console.log(product)
+            
           })}
 
-        </div>
+        </div>)}
 
       </section>
 
