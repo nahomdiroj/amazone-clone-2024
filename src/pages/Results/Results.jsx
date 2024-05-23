@@ -10,6 +10,7 @@ import Loader from '../../components/Loader/Loader'
 function Results() {
   const [results,setResults]= useState([])
   const {categoryName}= useParams();
+  console.log(categoryName.toLowerCase)
   const [isLaoding,setisLoading]=useState(true)
   
   useEffect(() => {
@@ -44,9 +45,10 @@ function Results() {
             
            return <ProductCard key={product.id}
               product={product}
+              renderAdd={true}
             />
 
-            console.log(product)
+         
             
           })}
 

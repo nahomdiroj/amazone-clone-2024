@@ -16,7 +16,7 @@ function ProductDetail() {
 
   const [isLaoding,setisLoading]=useState(true)
 
-  console.log(productId)
+ 
   useEffect(() => {
     
   axios.get(`${productUrl}/products/${productId}`)
@@ -38,6 +38,7 @@ function ProductDetail() {
     product={product}
     flex={true}
     renderDesc={true}
+    renderAdd={true}
     
     />)}
 

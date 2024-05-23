@@ -14,7 +14,7 @@ function Product() {
     .then((res)=>{
          setProducts(res.data)
          setisLoading(false)
-         console.log(res.data[3])
+  
        }).catch((err)=>{
         console.log(err)
         setisLoading(true)
@@ -31,7 +31,11 @@ function Product() {
         
                products?.map((singleProduct)=>{
                 
-                 return   <ProductCard product={singleProduct} key={singleProduct.id}/>
+                 return   <ProductCard product={singleProduct} 
+                 
+                    renderAdd={true}
+
+                 key={singleProduct.id}/>
                   })
        
                    
