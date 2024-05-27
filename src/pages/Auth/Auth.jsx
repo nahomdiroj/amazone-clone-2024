@@ -1,12 +1,11 @@
 import React, { useState,useContext } from 'react'
 import{auth} from '../../Utility/firebase'
 import classes from './auth.module.css'
-import { BsListNested } from 'react-icons/bs'
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from "firebase/auth"
 import {DataContext} from '../../components/DataProvider/DataProvider'
 import { Type } from '../../Utility/action.type'
 import { ClipLoader } from 'react-spinners'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 function Auth() {
   const[email,setEmail]=useState("")
   const[password,setPassword]=useState("")
@@ -54,7 +53,8 @@ function Auth() {
   return (
     <section className={classes.login}>
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Amazon_PNG6.png" alt="" srcset="" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Amazon_PNG6.png" alt="" srcset="" />
+   
        
         <div className={classes.login_container}>
           <h1>Sign In</h1>
