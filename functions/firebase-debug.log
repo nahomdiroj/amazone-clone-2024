@@ -2450,3 +2450,72 @@ SyntaxError: Unexpected token '}'
 [info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
 [info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
 [debug] [2024-05-27T12:18:36.739Z] File C:\Users\user\Desktop\react\fresh - Copy\functions\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\index.js changed, reloading triggers"}}
+[debug] [2024-05-27T12:18:37.742Z] Validating nodejs source
+[debug] [2024-05-27T12:18:39.177Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0",
+    "stripe": "^15.8.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-05-27T12:18:39.177Z] Building nodejs source
+[debug] [2024-05-27T12:18:39.177Z] Failed to find version of module node: reached end of search path C:\Users\user\Desktop\react\fresh - Copy\functions\node_modules
+[warn] !  functions: Your requested "node" version "18" doesn't match your global version "20". Using node@20 from host. 
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-05-27T12:18:39.178Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-05-27T12:18:39.182Z] Found firebase-functions binary at 'C:\Users\user\Desktop\react\fresh - Copy\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8175
+
+[debug] [2024-05-27T12:18:39.615Z] Got response from /__/functions.yaml {"endpoints":{"api":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","labels":{},"httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] +  functions: Loaded functions definitions from source: api. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: api."}}
+[debug] [2024-05-27T12:18:47.407Z] [work-queue] {"queuedWork":["/e-clone-njd/us-central1/api/payment/create-2024-05-27T12:18:47.407Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2024-05-27T12:18:47.407Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/e-clone-njd/us-central1/api/payment/create-2024-05-27T12:18:47.407Z"],"workRunningCount":1}
+[debug] [2024-05-27T12:18:47.407Z] Accepted request POST /e-clone-njd/us-central1/api/payment/create?total=4000 --> us-central1-api
+[debug] [2024-05-27T12:18:47.411Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2024-05-27T12:18:47.411Z] [functions] Got req.url=/e-clone-njd/us-central1/api/payment/create?total=4000, mapping to path=/payment/create?total=4000 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/e-clone-njd/us-central1/api/payment/create?total=4000, mapping to path=/payment/create?total=4000"}}
+[debug] [2024-05-27T12:18:47.411Z] [worker-pool] Cleaned up workers for us-central1-api: 1 --> 0 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Cleaned up workers for us-central1-api: 1 --> 0"}}
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2024-05-27T12:18:47.421Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2024-05-27T12:18:47.422Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2024-05-27T12:18:48.499Z] [runtime-status] [5136] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.1.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.1.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-05-27T12:18:48.502Z] [runtime-status] [5136] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-27T12:18:48.502Z] [runtime-status] [5136] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2024-05-27T12:18:48.503Z] [runtime-status] [5136] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-27T12:18:48.723Z] [runtime-status] [5136] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Checked functions.config() {\"config\":{}}"}}
+[debug] [2024-05-27T12:18:48.724Z] [runtime-status] [5136] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"5.0.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}}"}}
+[debug] [2024-05-27T12:18:48.725Z] [runtime-status] [5136] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-27T12:18:48.726Z] [runtime-status] [5136] Resolved module firebase-admin {"declared":true,"installed":true,"version":"12.1.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-admin\\lib\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"12.1.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}"}}
+[debug] [2024-05-27T12:18:48.729Z] [runtime-status] [5136] Resolved module firebase-functions {"declared":true,"installed":true,"version":"5.0.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-functions\\lib\\v1\\index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"5.0.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-functions\\\\lib\\\\v1\\\\index.js\"}"}}
+[debug] [2024-05-27T12:18:48.729Z] [runtime-status] [5136] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"12.1.1","resolution":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions\\node_modules\\firebase-admin\\lib\\index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"12.1.1\",\"resolution\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\\\\node_modules\\\\firebase-admin\\\\lib\\\\index.js\"}}"}}
+[debug] [2024-05-27T12:18:48.902Z] [runtime-status] [5136] Functions runtime initialized. {"cwd":"C:\\Users\\user\\Desktop\\react\\fresh - Copy\\functions","node_version":"20.11.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Functions runtime initialized. {\"cwd\":\"C:\\\\Users\\\\user\\\\Desktop\\\\react\\\\fresh - Copy\\\\functions\",\"node_version\":\"20.11.0\"}"}}
+[debug] [2024-05-27T12:18:48.903Z] [runtime-status] [5136] Listening to port: \\?\pipe\fire_emu_6d843d2b231ccf7e {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [5136] Listening to port: \\\\?\\pipe\\fire_emu_6d843d2b231ccf7e"}}
+[debug] [2024-05-27T12:18:48.945Z] [worker-us-central1-api-893c847c-6fe7-4299-93e5-9f843275d1da]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-893c847c-6fe7-4299-93e5-9f843275d1da]: IDLE"}}
+[debug] [2024-05-27T12:18:48.945Z] [worker-pool] submitRequest(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-api)"}}
+[info] i  functions: Beginning execution of "us-central1-api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"us-central1-api\""}}
+[debug] [2024-05-27T12:18:48.946Z] [worker-us-central1-api-893c847c-6fe7-4299-93e5-9f843275d1da]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-893c847c-6fe7-4299-93e5-9f843275d1da]: BUSY"}}
+[debug] [2024-05-27T12:18:50.050Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-api" in 1103.8691ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"us-central1-api\" in 1103.8691ms"}}
+[debug] [2024-05-27T12:18:50.050Z] [worker-us-central1-api-893c847c-6fe7-4299-93e5-9f843275d1da]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[worker-us-central1-api-893c847c-6fe7-4299-93e5-9f843275d1da]: IDLE"}}
+[debug] [2024-05-27T12:18:50.050Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2024-05-27T12:18:50.050Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2024-05-27T12:18:50.051Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
