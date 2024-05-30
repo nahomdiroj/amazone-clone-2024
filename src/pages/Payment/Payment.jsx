@@ -32,6 +32,7 @@ function Payment() {
       e?.error?.message? setCardError( e?.error?.message):setCardError("")
   }
 
+
   const handlePayment= async(e)=>{
     e.preventDefault()
     try{
