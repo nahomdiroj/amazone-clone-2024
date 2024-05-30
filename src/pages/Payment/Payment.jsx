@@ -9,9 +9,10 @@ import { axiosInstance } from '../../Api/axios'
 import { ClipLoader } from 'react-spinners'
 import { db } from '../../Utility/firebase'
 import { useNavigate } from 'react-router-dom'
+import { Type } from '../../Utility/action.type'
 
 function Payment() {
-  const[{user,basket}]=useContext(DataContext)
+  const[{user,basket},dispatch]=useContext(DataContext)
 
   const totalItem=basket?.reduce((amount,item)=>{
       return item.amount+ amount
@@ -41,7 +42,7 @@ function Payment() {
             method:"POST",
             url:`/payment/create?total=${total*100}`
           })
-          console.log(response.data)
+         
           const clientSecret = response.data?.clientSecret
 
           const {paymentIntent}= await stripe.confirmCardPayment(
@@ -53,9 +54,12 @@ function Payment() {
 
           await db.collection("users").doc(user.uid).collection("orders").doc(paymentIntent.id).set({
             amount:paymentIntent.amount,
-            created:paymentIntent.created
+            created:paymentIntent.created,
+            basket:basket,
           })
-
+            //empty the basket
+          dispatch({type:Type.EMPTY_BASKET})
+            
 
         setProcessing(false)
           navigate("/orders",{state:{msg:"you have placed new order"}})

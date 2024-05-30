@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import { useContext, useEffect } from 'react';
 import './App.css';
 import Routing from './Router';
