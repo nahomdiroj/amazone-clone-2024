@@ -5,7 +5,10 @@ import { DataContext } from '../../components/DataProvider/DataProvider'
 import ProductCard from '../../components/product/ProductCard'
 import { useStripe,useElements,CardElement } from '@stripe/react-stripe-js'
 import CurrencyFormat from '../../components/CurrencyFormat/CurrencyFormat'
-
+import { axiosInstance } from '../../Api/axios'
+import { ClipLoader } from 'react-spinners'
+import { db } from '../../Utility/firebase'
+import { useNavigate } from 'react-router-dom'
 
 function Payment() {
   const[{user,basket}]=useContext(DataContext)
@@ -20,11 +23,46 @@ function Payment() {
 
 
   const stripe =useStripe()
-  const element=useElements()
+  const elements=useElements()
   const [cardError,setCardError] = useState(null)
+  const [processing,setProcessing]=useState(false)
+   const navigate=useNavigate()
 
   const handleChange=(e)=>{
       e?.error?.message? setCardError( e?.error?.message):setCardError("")
+  }
+
+  const handlePayment= async(e)=>{
+    e.preventDefault()
+    try{
+      setProcessing(true)
+          const response = await axiosInstance({
+            method:"POST",
+            url:`/payment/create?total=${total*100}`
+          })
+          console.log(response.data)
+          const clientSecret = response.data?.clientSecret
+
+          const {paymentIntent}= await stripe.confirmCardPayment(
+              clientSecret,{payment_method:{
+                card:elements.getElement(CardElement)
+              }}
+          )
+       
+
+          await db.collection("users").doc(user.uid).collection("orders").doc(paymentIntent.id).set({
+            amount:paymentIntent.amount,
+            created:paymentIntent.created
+          })
+
+
+        setProcessing(false)
+          navigate("/orders",{state:{msg:"you have placed new order"}})
+
+    }catch(error){
+        console.log(error)
+        setProcessing(false)
+    }
   }
 
   return (
@@ -57,7 +95,7 @@ function Payment() {
           <h3>Payment methods</h3>
           <div className={classes.payment_card_container}>
             <div className={classes.payment_details}>
-              <form action="">
+              <form onSubmit={handlePayment}>
                 {cardError&&<small  style={{color:"red"}}>{cardError}</small>}
                 <CardElement onChange={handleChange}/>
 
@@ -67,8 +105,17 @@ function Payment() {
                        <p> Total Order |</p> <CurrencyFormat amount={total}/>
                     </span>
                   </div>
-                  <button>
-                    Pay Now
+                  <button type='submit'>
+                    {
+                      processing?(
+                        <div className={classes.loading}>
+                          <ClipLoader color='grey' size={12}/>
+                          <p>Please wait ...</p>
+                          </div>
+                        
+                      ):"Pay Now"
+                    }
+                    
                   </button>
                 </div>
               </form>
